@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{{TITLE}}</title>
+</head>
+<body style="font-family:sans-serif;text-align:center;padding:10vh 2rem;">
+  {{IMAGE}}
+  <h1>{{TITLE}}</h1>
+  <p>{{MESSAGE}}</p>
+</body>
+</html>

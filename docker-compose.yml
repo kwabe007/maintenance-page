@@ -1,0 +1,9 @@
+# For dev purposes
+
+services:
+  web:
+    build: .
+    env_file:
+      - .env.docker
+    ports:
+      ["8000:80"]
