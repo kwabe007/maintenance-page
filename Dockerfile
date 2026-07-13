@@ -1,16 +1,17 @@
-FROM nginx:alpine
+FROM alpine:3.24
 
-# Copy the HTML template
-COPY index.html.template /usr/share/nginx/html/index.html.template
+WORKDIR /app
 
-# Copy custom Nginx config
-COPY nginx.conf /etc/nginx/nginx.conf
-COPY default.conf /etc/nginx/conf.d/default.conf
+RUN apk add --no-cache lighttpd
 
-# Copy entrypoint script for env variable substitution
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+COPY index.html.template entrypoint.sh lighttpd.conf ./
 
-EXPOSE 80
-ENTRYPOINT ["/entrypoint.sh"]
-CMD ["nginx", "-g", "daemon off;"]
+RUN chmod +x entrypoint.sh
+
+RUN addgroup --system --gid 1001 static
+RUN adduser --system --uid 1001 static
+RUN chown -R static:static /app
+
+USER static
+
+ENTRYPOINT ["./entrypoint.sh"]

@@ -4,6 +4,5 @@ services:
   web:
     build: .
     env_file:
-      - .env.docker
-    ports:
-      ["8000:80"]
+      - .env
+    network_mode: host
