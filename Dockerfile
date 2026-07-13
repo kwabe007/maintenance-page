@@ -3,8 +3,11 @@ FROM alpine:3.24
 WORKDIR /app
 
 RUN apk add --no-cache lighttpd
+RUN apk add --no-cache curl
 
 COPY index.html.template entrypoint.sh lighttpd.conf ./
+
+RUN mkdir serve
 
 RUN chmod +x entrypoint.sh
 

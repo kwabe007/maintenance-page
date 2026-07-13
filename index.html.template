@@ -18,13 +18,12 @@
     }
     img {
       max-width: 80%;              /* scale image on mobile */
-      height: auto;
       margin-bottom: 1.5rem;
     }
   </style>
 </head>
 <body>
-  {{IMAGE}}
+  {{IMG_TAG}}
   <h1>{{TITLE}}</h1>
   <p>{{MESSAGE}}</p>
 </body>
